@@ -1,5 +1,5 @@
 # R-projects
-## Computational Biology-R projects in both Windows and Linux
+## Computational Biology-R projects
 ![compbio.jpg](C:\Users\SANDHYA\Pictures\compbio.jpg)
 
 
