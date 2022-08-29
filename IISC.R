@@ -1,3 +1,5 @@
+# input MS quantification files for Downstream Processing
+
 imp<- as.data.frame(example)
 medium<- as.data.frame(imp)
 colnames(medium[,3:11]) <- c("U1","U2", "U3","R1","R2", "R3","H1","H2", "H3")
@@ -6,7 +8,7 @@ names(medium)[names(medium) == colnames(medium)[3]] <- "U1"
 #......
 m1<- medium[,1:11]
 
-##########log transform
+# Log transform
 m1.log<-log(m1[,3:11],2) 
 m2.log<- cbind(m1[,1:2], m1.log)
 is.na(m1.log)
@@ -14,7 +16,8 @@ is.na(m1.log)
 final.2 <- as.data.frame(m2.log[rowSums(is.na(m2.log)) <= 6, ]) #min 6 NA's
 colSums(is.na(final.2))
 imputed<- cbind(m4[,1:2], m2.complete)
-##missmap
+
+# Missmap
 library(Amelia)
 rows1<- m2.log[,1]
 missmap(m2.log[,2:10], legend=T, col = c("wheat", "darkred"), x.cex = 0.5, 
@@ -29,7 +32,7 @@ md.pairs(m2.log)# freq of missing vals b/w pairs
 CleanData.imp <- mice(m2.log, m=5, maxit=2, printFlag=TRUE) 
 summary(CleanData.imp)
 
-#########Normalization
+# Normalization
 
 quanData<- m2.complete[,c(1,2,4,5,7,8)]
 b <- data.frame(name=c("U1","U2",
