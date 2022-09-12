@@ -4,7 +4,7 @@ imp<- as.data.frame(example)
 medium<- as.data.frame(imp)
 colnames(medium[,3:11]) <- c("U1","U2", "U3","R1","R2", "R3","H1","H2", "H3")
 ##OR
-names(medium)[names(medium) == colnames(medium)[3]] <- "U1"
+#names(medium)[names(medium) == colnames(medium)[3]] <- "U1"
 #......
 m1<- medium[,1:11]
 
